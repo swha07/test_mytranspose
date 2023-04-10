@@ -1,0 +1,66 @@
+myvar01 <- matrix(1:10, nrow=5, ncol=2)
+myvar01
+mytranspose(myvar01)
+myvar01[1,2] == mytranspose(myvar01)[2,1]
+myvar01[2,1] == mytranspose(myvar01)[1,2]
+myvar01[3,1] == mytranspose(myvar01)[1,3]
+myvar01[4,2] == mytranspose(myvar01)[2,4]
+myvar01[5,2] == mytranspose(myvar01)[2,5]
+all.equal.raw((myvar01), mytranspose(mytranspose(myvar01)))
+
+myvar02 <- matrix(NA, nrow=0, ncol=0)
+myvar02
+mytranspose(myvar02)
+all.equal.raw((myvar02), mytranspose(mytranspose(myvar02)), check.attributes = FALSE)
+
+myvar03 <- matrix(c(1,2), nrow=1, ncol=2)
+myvar03
+mytranspose(myvar03)
+myvar03[1] == mytranspose(myvar03)[1]
+myvar03[2] == mytranspose(myvar03)[2]
+all.equal.raw((myvar03), mytranspose(mytranspose(myvar03)))
+
+myvar04 <- matrix(c(1,2), nrow=2, ncol=1)
+myvar04
+mytranspose(myvar04)
+myvar04[1] == mytranspose(myvar04)[1]
+myvar04[2] == mytranspose(myvar04)[2]
+all.equal.raw((myvar04), mytranspose(mytranspose(myvar04)))
+
+myvar05 <- c(1,2,NA,3)
+myvar05
+mytranspose(myvar05)
+myvar05[1] == mytranspose(myvar05)[1]
+myvar05[2] == mytranspose(myvar05)[2]
+myvar05[4] == mytranspose(myvar05)[4]
+all.equal.raw(as.numeric(myvar05), as.numeric(mytranspose(mytranspose(myvar05))))
+
+myvar06 <- c(NA)
+myvar06
+mytranspose(myvar06)
+all.equal.raw(as.numeric(myvar06), as.numeric(mytranspose(mytranspose(myvar06))))
+
+myvar07 <- c()
+myvar07
+mytranspose(myvar07)
+all.equal.raw((myvar07), mytranspose(mytranspose(myvar07)))
+
+
+d <- c(1,2,3,4)
+e <- c("red", "white", "red", NA)
+f <- c(TRUE, TRUE, TRUE, FALSE)
+myvar08 <- data.frame(d,e,f)
+mytranspose(myvar08)
+myvar08[1,2] == mytranspose(myvar08)[2,1]
+myvar08 == mytranspose(mytranspose(myvar08))
+
+
+myvar09
+mytranspose(myvar09)
+myvar09[1,2] == mytranspose(myvar09)[2,1]
+myvar09[2,3] == mytranspose(myvar09)[3,2]
+myvar09[3,1] == mytranspose(myvar09)[1,3]
+myvar09[4,1] == mytranspose(myvar09)[1,4]
+myvar09[4,3] == mytranspose(myvar09)[3,4]
+all.equal.raw((myvar09), mytranspose(mytranspose(myvar09)), check.attributes = FALSE)
+
